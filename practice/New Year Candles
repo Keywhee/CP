@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include <utility>
+#include <map>
+#include <math.h>
+#include <deque>
+#include <stdio.h>
+#include <time.h>
+#include <list>
+#include <chrono>
+ 
+#define pb push_back
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+typedef long long ll;
+ 
+using namespace std;
+ 
+int main()
+{
+  cutting;
+  
+  ll n, t; cin >> n >> t;
+  
+  int count = 0; int leftovers = 0;
+  count += n;
+  while (n != 0)
+  {
+      count += n/t;
+      leftovers = n%t;
+      n = n/t + leftovers;
+      if (n < t)
+        break;
+  }
+  
+  cout << count;
+  
+  return 0;
+}
