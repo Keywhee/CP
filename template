@@ -15,6 +15,8 @@
 #define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
 typedef long long ll;
 
+using namespace std;
+
 int main()
 {
   cutting;
