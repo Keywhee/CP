@@ -13,15 +13,20 @@
 
 #define pb push_back
 #define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define timestart auto starttime = chrono::high_resolution_clock::now;
+#define timestop auto stoptime = chrono::high_resolution_clock::now;
+#define duration auto durationoftime = duration_cast<microseconds>(stoptime - starttime) cout << durationoftime << '\n';
 typedef long long ll;
 
 using namespace std;
 
 int main()
 {
-  cutting;
+  timestart; cutting;
   
   ll n; cin >> n;
   
+  timestop; duration; 
   return 0;
 }
