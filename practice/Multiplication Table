@@ -1,0 +1,27 @@
+#include <iostream>
+
+#define pb push_back
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+typedef long long ll;
+
+using namespace std;
+
+// We could generate a list of primes but I cba to 
+
+
+int main()
+{
+    cutting;
+  
+    ll n, x; cin >> n >> x;
+    int count = 0;
+    for (ll i = 1; i <= n; i++)
+    {
+        if (x % i == 0 && x/i <= n)
+            count++;
+    }
+    
+    cout << count;
+
+    return 0;
+}
