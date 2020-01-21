@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+#define pb push_back
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+typedef long long ll;
+
+using namespace std;
+
+
+int main()
+{
+    cutting;
+  
+    ll n, m, to; cin >> n >> m;
+    to = n/2 + n%2;
+    while (to % m != 0)
+        to++;
+    if (to > n)
+        cout << -1;
+    else
+        cout << to;
+    
+    
+    return 0;
+}
