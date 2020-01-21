@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+#define pb push_back
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+typedef long long ll;
+
+using namespace std;
+
+
+int main()
+{
+    cutting;
+  
+    ll n, q;
+    cin >> n;
+    vector<int> x;
+    for (ll i = 0; i < n; i++)
+    {
+        ll y; cin >> y; x.push_back(y);
+    }
+    sort(x.begin(), x.end());
+
+    cin >> q;
+    for (ll i = 0; i < q; i++)
+    {
+        ll y; cin >> y; 
+        ll k = 0;
+        ll l = -1, r = n;
+        while (r-l > 1)
+        {
+            ll mid = (l + r) / 2;
+            if(y >= x[mid]) l = mid;
+            if(y < x[mid]) r = mid;
+        }
+        k = r;
+        cout << k << '\n';
+    }
+    
+    
+    
+    return 0;
+}
