@@ -1,0 +1,27 @@
+// Got tired of writing all the #includes soo
+
+#include <bits/stdc++.h>
+
+#define pb push_back
+#define cutting std::ios_base::sync_with_stdio(false); cin.tie(NULL);
+typedef long long ll;
+
+using namespace std;
+
+
+int main()
+{
+    cutting;
+  
+    ll n; cin >> n;
+    string zo; cin >> zo;
+    ll sa = 0; ll sb = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (zo[i] == '1') sa++;
+        if (zo[i] == '0') sb++;
+    }
+    cout << n - 2 * min(sa, sb);
+    
+    return 0;
+}
