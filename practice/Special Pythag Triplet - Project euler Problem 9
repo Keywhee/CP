@@ -1,0 +1,28 @@
+/* Please tell me why I'm doing this lmao */
+#include <bits/stdc++.h>
+#define pb push_back
+#define cutting ios_base::sync_with_stdio(0); cin.tie(0);
+#define MAX 1000000
+typedef long long ll;
+using namespace std;
+
+
+
+int main()
+{
+    cutting;
+    
+    for (int a = 1; a < 1000; a++)
+    {
+        for (int b = 1; b < 1000 - a; b++)
+        {
+            int c = 1000 - b - a; 
+            if (c * c == a * a + b * b) 
+            {
+                cout << a * b * c;
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
