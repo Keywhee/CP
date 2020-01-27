@@ -1,0 +1,56 @@
+/* 10001st Prime  - Project Euler Problem 7 */
+/* Inefficient, I know, but I don't care :) */
+
+#include <bits/stdc++.h>
+#define pb push_back
+#define cutting ios_base::sync_with_stdio(0); cin.tie(0);
+#define MAX 1000000
+typedef long long ll;
+using namespace std;
+
+
+ll primes[MAX];
+
+void _init()
+{
+    for (ll i = 0; i < MAX; i++)
+    {
+        primes[i] = 0;
+    }
+}
+
+bool isPrime(ll nm)
+{
+    for (ll i = 0; i < nm; i++)
+    {
+        if (primes[i] <= floor(sqrt(nm)))
+        {
+            if (nm % primes[i] == 0) return false;
+        }
+        else break;
+    }
+    return true;
+}
+
+int main()
+{
+    cutting;
+    
+    _init();
+    
+    primes[0] = 2; 
+    ll index = 1;
+    
+    for (ll i = 1; index < 10005; i++)
+    {
+        if (isPrime(2 * i + 1))
+        {
+            primes[index] = 2 * i + 1;
+            index++;
+        }
+    }
+    
+    cout << primes[10000];
+    
+    return 0;
+}
