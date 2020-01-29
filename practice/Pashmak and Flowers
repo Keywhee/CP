@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#define cutting ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define pb push_back
+typedef long long ll;
+using namespace std;
+
+int main()
+{
+    cutting;
+    
+    ll n; cin >> n;
+    
+    vector<ll> bi;
+    for (ll i = 0; i < n; i++)
+    {
+        ll b; cin >> b;
+        bi.push_back(b);
+    }
+    
+    sort(bi.begin(), bi.end());
+    
+    ll hi = bi[n-1], lo = bi[0];
+    ll counth = 0, countl = 0;
+    for (ll i = 0; i < n-1; i++)
+    {
+        if (bi[i] == lo) countl++;
+        else break;
+    }
+    
+    for (ll i = n-1; i > 0; i--)
+    {
+        if (bi[i] == hi) counth++;
+        else break;
+    }
+    if (hi - lo == 0) cout << 0 << " " << (n-1)*(n)/2;
+    else cout << abs(hi - lo) << " " << counth * countl;
+    
+    
+    return 0;
+}
