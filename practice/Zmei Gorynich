@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+typedef long long ll;
+#define pb push_back
+#define cutting ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+using namespace std;
+
+int main()
+{
+    cutting;
+    
+    ll t; cin >> t;
+    
+    for (ll i = 0; i < t; i++)
+    {
+        ll n, x; cin >> n >> x;
+        ll dmg = 0; ll dff = 0;
+        for (ll i = 0; i < n; i++)
+        {
+            ll d, h; cin >> d >> h; 
+            if (d > dmg) dmg = d;
+            if (d - h > dff) dff = d - h;
+        }
+        
+        // Undefeatable
+        if (dff == 0 && x > dmg) 
+        {
+            cout << -1 << '\n'; 
+        }
+        else if (x <= dmg)
+        	cout << 1 << '\n';
+        else {
+        ll moves = (x - dmg) / dff + 1;
+        x -= moves * dff;
+        
+        if (x > 0 && x + dff> dmg) moves++;
+        
+        cout << moves << '\n';
+    
+        }
+    }
+    
+    return 0;
+}
