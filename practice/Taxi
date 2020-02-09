@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+
+#define cutting ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define pb push_back
+#define mp make_pair
+
+typedef long long ll;
+
+using namespace std;
+
+vector<int> si;
+
+ll inc(int s, ll taxis)
+{
+    if (s == 4) return taxis+1;
+    else
+    {
+        auto it  = find(si.begin(), si.end(), 4-s);
+        if (it != si.end())
+        {
+            si.erase(it);
+            return taxis+1;
+        }
+    }
+    si.pb(s);
+    return taxis;
+}
+
+int main()
+{    
+    int n; cin >> n;
+    
+    ll taxis = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int s; cin >> s;
+        taxis = inc(s, taxis);
+    }
+    
+    int count = 0;
+    for (auto& it: si) 
+    {
+        if (it != 3) count += it;
+        else taxis++;
+    }
+    taxis += count/4 +1;
+    if (count % 4 == 0) taxis--;
+    
+    cout << taxis;
+    return 0;
+}
